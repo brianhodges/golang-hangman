@@ -28,6 +28,7 @@ func main() {
 	}
 
 	solution := strings.ToLower(wordList[rand.Intn(len(wordList))])
+	util.ClearConsole()
 	game.PrintHangMan(tries)
 	game.PrintGameBoard(solution, attempts)
 
@@ -36,8 +37,11 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		input, _ := reader.ReadString('\n')
 		guess := strings.TrimSpace(strings.ToLower(string([]byte(input)[0])))
+		util.ClearConsole()
 		if util.StringInSlice(guess, attempts) {
 			fmt.Println("Already tried: ", strings.ToUpper(guess))
+			game.PrintHangMan(tries)
+			game.PrintGameBoard(solution, attempts)
 			continue
 		}
 
