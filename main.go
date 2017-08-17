@@ -25,7 +25,7 @@ func main() {
 
 	var attempts []string
 	solution := strings.ToLower(wordList[rand.Intn(len(wordList))])
-	var tries int = 0
+	var tries int
 	game.PrintHangMan(tries)
 	game.PrintGameBoard(solution, attempts)
 

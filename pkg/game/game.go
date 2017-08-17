@@ -6,9 +6,10 @@ import (
 	"strings"
 )
 
+//Board is used to keep track of current game state - hangman letters
 var Board string
 
-//PrintGameBoard shows current guessed correct letters/spaces
+//PrintGameBoard prints current game state
 func PrintGameBoard(solution string, attempts []string) {
 	Board = ""
 	for _, letter := range solution {
@@ -21,7 +22,7 @@ func PrintGameBoard(solution string, attempts []string) {
 	fmt.Println(Board)
 }
 
-//PrintHangMan shows the current status of the game (hangman)
+//PrintHangMan prints the current hangman state
 func PrintHangMan(tries int) {
 	fmt.Println()
 	switch tries {
