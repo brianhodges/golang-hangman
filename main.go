@@ -5,13 +5,26 @@ import (
 	"fmt"
 	"golang-hangman/pkg/game"
 	"golang-hangman/pkg/util"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 func main() {
+	//Get random word for game solution from word list file
+	rand.Seed(time.Now().Unix())
+	var wordList []string
+	file, err := os.Open("./words.txt")
+	util.CheckError(err)
+	defer file.Close()
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		wordList = append(wordList, scanner.Text())
+	}
+
 	var attempts []string
-	solution := strings.ToLower("WINNER")
+	solution := strings.ToLower(wordList[rand.Intn(len(wordList))])
 	var tries int = 0
 	game.PrintHangMan(tries)
 	game.PrintGameBoard(solution, attempts)
