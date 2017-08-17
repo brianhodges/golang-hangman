@@ -41,7 +41,7 @@ func PrintHangMan(tries int) {
 		fmt.Println("	          |")
 		fmt.Println("	          |")
 		fmt.Println(" 	          |")
-		fmt.Println(" 	        ---")
+		fmt.Println(" 	         ---")
 	case 2:
 		fmt.Println("	    +-----+")
 		fmt.Println("	    |     |")
