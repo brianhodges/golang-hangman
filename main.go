@@ -15,6 +15,7 @@ func main() {
 	var wordList []string
 	var attempts []string
 	var tries int
+	var outcome string = "Lose"
 
 	//Get random word for game solution from word list file
 	rand.Seed(time.Now().Unix())
@@ -49,9 +50,11 @@ func main() {
 		game.PrintGameBoard(solution, attempts)
 		if !strings.Contains(game.Board, "_") {
 			tries = 6
+			outcome = "Win"
 			continue
 		}
 	}
 	fmt.Println("\nGame Over")
+	fmt.Println(fmt.Sprintf("You %v!", outcome))
 	os.Exit(1)
 }
